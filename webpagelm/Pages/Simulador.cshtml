@@ -2,11 +2,47 @@
 @model SimuladorModel
 @{
 }
-    <div class="row">
-        <div class="col-sm-12" style="border-bottom:solid 1px #fcb51c">
-            <h4>
-                Simulador
-            </h4>
-        </div>     
 
+<div class="container">
+<div class="row">
+    <div class="col-sm-12" style="border-bottom:solid 1px #fcb51c">
+        <h4>
+            Simulador
+        </h4>
+    </div>
+</div>
+    <div class="row">
+        <div class="mt-4">
+            <p>
+                Estamos aqui para lhe ajudar a fazer a melhor escolha possivel e para isso contamos com uma equipe muito bem treinada para lhe ajudar a fazer sempre a melhor escolha dentro do que você precisa.
+            </p>
+            <p>
+                Para que possamos lhe auxiliar, nos envie a sua solicitação que faremos a simulação pra você e lhe retornaremos com as melhores opções.
+            </p>
+            <h6>
+                Preencha os campos abaixo:
+            </h6>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="mb-3 mt-3">
+                <label for="exampleFormControlInput1" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="nome" placeholder="Digite seu CPF com 11 digitos">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="exampleFormControlInput1" class="form-label">CPF</label>
+                <input type="number" class="form-control" id="cpf" placeholder="Digite seu CPF com 11 digitos">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Valor do empréstimo</label>
+                <input type="number" class="form-control" id="valor" placeholder="De quanto você precisa?">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Mensagem</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Enviar">
+        </div>
+    </div>
 </div>

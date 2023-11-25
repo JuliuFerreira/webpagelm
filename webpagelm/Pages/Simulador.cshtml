@@ -4,13 +4,13 @@
 }
 
 <div class="container">
-<div class="row">
-    <div class="col-sm-12" style="border-bottom:solid 1px #fcb51c">
-        <h4>
-            Simulador
-        </h4>
+    <div class="row">
+        <div class="col-sm-12" style="border-bottom:solid 1px #fcb51c">
+            <h4>
+                Simulador
+            </h4>
+        </div>
     </div>
-</div>
     <div class="row">
         <div class="mt-4">
             <p>
@@ -19,38 +19,66 @@
             <p>
                 Para que possamos lhe auxiliar, nos envie a sua solicitação que faremos a simulação pra você e lhe retornaremos com as melhores opções.
             </p>
-            <h6>
-                Preencha os campos abaixo:
-            </h6>
+
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="mb-3 mt-3">
-                <label for="exampleFormControlInput1" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" placeholder="Digite seu CPF com 11 digitos">
-            </div>           
-            <div class="mb-3 mt-3">
-                <label for="exampleFormControlInput1" class="form-label">CPF</label>
-                <input type="number" class="form-control" id="cpf" placeholder="Digite seu CPF com 11 digitos">
+    @if (ViewData["MsgSucesso"] is null)
+    {        
+        <form method="post">
+            <div class="row mt-4">
+                <div class="col-sm-12">
+                    <p style="font-weight:bold">
+                        Preencha os campos abaixo:
+                    </p>
+                </div>
+                <div class="col-sm-6">
+                    <div class="mb-3 mt-3">
+                        <label for="exampleFormControlInput1" class="form-label">Nome</label>
+                        <input asp-for="Cliente.Nome" type="text" class="form-control" id="nome" placeholder="Digite seu nome">
+                        <span class="text-danger" asp-validation-for="Cliente.Nome"></span>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="exampleFormControlInput1" class="form-label">CPF</label>
+                        <input asp-for="Cliente.Cpf" type="number" class="form-control" id="cpf" placeholder="Digite seu CPF com 11 digitos">
+                        <span class="text-danger" asp-validation-for="Cliente.Cpf"></span>
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Endereço de Email</label>
+                        <input asp-for="Cliente.Email" type="email" class="form-control" id="email" placeholder="name@example.com">
+                        <span class="text-danger" asp-validation-for="Cliente.Email"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Telefone/WatsApp</label>
+                        <input asp-for="Cliente.Tel" type="tel" class="form-control" id="fone" placeholder="00-000000000">
+                        <span class="text-danger" asp-validation-for="Cliente.Tel"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Valor do empréstimo</label>
+                        <input asp-for="Cliente.Valor" type="number" class="form-control" id="valor" placeholder="De quanto você precisa?">
+                        <span class="text-danger" asp-validation-for="Cliente.Valor"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Mensagem</label>
+                        <textarea asp-for="Cliente.Mensagem" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <span class="text-danger" asp-validation-for="Cliente.Mensagem"></span>
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Enviar">
+                </div>
             </div>
-             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Endereço de Email</label>
-                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+        </form>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-sm-12" style="color:green; font-size:1.2rem">
+                @ViewData["MsgSucesso"]
             </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Telefone/WatsApp</label>
-                <input type="tel" class="form-control" id="fone" placeholder="00-000000000">
+            <div class="col-sm-12 mt-4">
+                <a href="Simulador" class="btn btn-primary" target="_self">Refazer simulação</a>
             </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Valor do empréstimo</label>
-                <input type="number" class="form-control" id="valor" placeholder="De quanto você precisa?">
-            </div>            
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Mensagem</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <input class="btn btn-primary" type="submit" value="Enviar">
         </div>
-    </div>
+
+    }
+
 </div>

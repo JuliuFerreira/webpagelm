@@ -15,27 +15,53 @@
             Estamos felizes em estabelecer um canal direto de comunicação com você. Sua opinião, perguntas e sugestões são de extrema importância para nós. Nossa equipe está aqui para atendê-lo com a mesma transparência e amizade que valorizamos em todas as nossas operações. Por favor, sinta-se à vontade para entrar em contato conosco e vamos trabalhar juntos para atender às suas necessidades financeiras.
         </p>
     </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="mb-3 mt-3">
-                <label for="exampleFormControlInput1" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" placeholder="Por Favor deixe seu nome completo">
+    @if (ViewData["MsgSucesso"] is null)
+    {        
+        <form method="post">
+            <div class="row mt-4">
+                <div class="col-sm-12">
+                    <p style="font-weight:bold">
+                        Preencha os campos abaixo:
+                    </p>
+                </div>
+                <div class="col-sm-6">
+                    <div class="mb-3 mt-3">
+                        <label for="exampleFormControlInput1" class="form-label">Nome</label>
+                        <input asp-for="Retorno.Nome" type="text" class="form-control" id="nome" placeholder="Digite seu nome">
+                        <span class="text-danger" asp-validation-for="Retorno.Nome"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Endereço de Email</label>
+                        <input asp-for="Retorno.Email" type="email" class="form-control" id="email" placeholder="name@example.com">
+                        <span class="text-danger" asp-validation-for="Retorno.Email"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Telefone/WatsApp</label>
+                        <input asp-for="Retorno.Tel" type="tel" class="form-control" id="Tel" placeholder="00-000000000">
+                        <span class="text-danger" asp-validation-for="Retorno.Tel"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Mensagem</label>
+                        <textarea asp-for="Retorno.Mensagem" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <span class="text-danger" asp-validation-for="Retorno.Mensagem"></span>
+
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Enviar">
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">CPF</label>
-                <input type="text" class="form-control" id="cpf" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}" placeholder="000.000.000-00">
+        </form>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-sm-12" style="color:green; font-size:1.2rem">
+                @ViewData["MsgSucesso"]
             </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Endereço de Email</label>
-                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+            <div class="col-sm-12 mt-4">
+                <a href="Simulador" class="btn btn-primary" target="_self">Refazer simulação</a>
             </div>
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Mensagem</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <input class="btn btn-primary" type="submit" value="Enviar">
         </div>
-    </div>
+    }
     <div style="margin-top: 20px;">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3535.815488940892!2d-48.60861842382261!3d-27.599249476244726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9527362e53f1a2a5%3A0x7201592fd2c39391!2sAv.%20Josu%C3%A9%20di%20Bernardi%2C%20185%20-%20Capoeiras%2C%20Florian%C3%B3polis%20-%20SC%2C%2088101-200!5e0!3m2!1spt-PT!2sbr!4v1697146965984!5m2!1spt-PT!2sbr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>

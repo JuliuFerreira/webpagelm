@@ -17,31 +17,52 @@
             <p>
                 Se cada um de nós fizermos um pouquinho, podemos ajudar muitas instituições e dar uma qualidade de vida melhor para alguém.
             </p>
-            <h6>
-                Você pode indicar abaixo uma instituição para receber nossa ajuda:
-            </h6>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="mb-3 mt-3">
-                <label for="exampleFormControlInput1" class="form-label">Nome da instituição</label>
-                <input type="text" class="form-control" id="instituicao" placeholder="Digite aqui o nome da instituição">
+    @if (ViewData["MsgSucesso"] is null)
+    {
+        <form method="post">
+            <div class="row mt-4">
+                <div class="col-sm-6">
+                    <p style="font-weight:bold">
+                        Você pode indicar abaixo uma instituição para receber nossa ajuda:
+                    </p>
+                    <div class="mb-3 mt-3">
+                        <label for="exampleFormControlInput1" class="form-label">Nome da instituição</label>
+                        <input asp-for="Ajuda.Instituicao" type="text" class="form-control" id="instituicao" placeholder="Digite aqui o nome da instituição">
+                        <span class="text-danger" asp-validation-for="Ajuda.Instituicao"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Telefone da instituição</label>
+                        <input asp-for="Ajuda.Tel" type="tel" class="form-control" id="fone" placeholder="Digite o telefone de contato da instituição">
+                        <span class="text-danger" asp-validation-for="Ajuda.Tel"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Mensagem</label>
+                        <textarea asp-for="Ajuda.Mensagem" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <span class="text-danger" asp-validation-for="Ajuda.Mensagem"></span>
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Enviar">
+                </div>
+                <div style="margin-top: 20px;">
+                    <h4 class="mt-4">
+                        Nos ajude a ajudar!
+                    </h4>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Telefone da instituição</label>
-                <input type="tel" class="form-control" id="fone" placeholder="Digite o telefone de contato da instituição">
+        </form>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-sm-12" style="color:green; font-size:1.2rem">
+                @ViewData["MsgSucesso"]
             </div>
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Mensagem</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <div class="col-sm-12 mt-4">
+                <a href="Social" class="btn btn-primary" target="_self">Indicar outra instituição</a>
             </div>
-            <input class="btn btn-primary" type="submit" value="Enviar">
         </div>
-        <div style="margin-top: 20px;">
-            <h4>
-                Nos ajude a ajudar!
-            </h4>
-        </div>
-    </div>
+
+    }
+
 </div>
